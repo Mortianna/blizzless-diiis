@@ -930,13 +930,6 @@ namespace DiIiS_NA.GameServer.GSSystem.ItemsSystem
 				player.AddPercentageHP(60);
 				player.World.BuffManager.AddBuff(this, player, new PowerSystem.Implementations.CooldownBuff(30211, TickTimer.WaitSeconds(player.World.Game, 30f)));
 
-				if (this.Attributes[GameAttribute.ItemStackQuantityLo] <= 1)
-					player.Inventory.DestroyInventoryItem(this); // No more potions!
-				else
-				{
-					this.UpdateStackCount(--this.Attributes[GameAttribute.ItemStackQuantityLo]); // Just remove one
-					this.Attributes.SendChangedMessage(player.InGameClient);
-				}
 				return;
 			}
 
